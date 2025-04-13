@@ -73,7 +73,7 @@ This project implements a video recommendation algorithm that:
 2. **Get Category-based Feed**
 
    ```
-   GET /feed?username={username}&category_id={category_id}
+   GET /feed?username={username}&project_code={project_code}
    ```
 
    Returns category-specific video recommendations for a user.
