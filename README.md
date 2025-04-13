@@ -8,7 +8,7 @@ This project implements a video recommendation algorithm that:
 
 - Delivers personalized content recommendations
 - Handles cold start problems using mood-based recommendations
-- Utilizes Graph/Deep neural networks for content analysis
+- Utilizes deep neural networks for content analysis
 - Integrates with external APIs for data collection
 - Implements efficient data caching and pagination
 
@@ -26,23 +26,21 @@ This project implements a video recommendation algorithm that:
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/Tim-Alpha/video-recommendation-assignment.git
-   ```
-   ```bash
+   git clone <repository-url>
    cd video-recommendation-engine
    ```
-1. **Set Up Virtual Environment**
+2. **Set Up Virtual Environment**
 
    ```bash
    python -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
-2. **Install Dependencies**
+3. **Install Dependencies**
 
    ```bash
    pip install -r requirements.txt
    ```
-3. **Configure Environment Variables**
+4. **Configure Environment Variables**
    Create a `.env` file in the root directory:
 
    ```env
@@ -50,12 +48,12 @@ This project implements a video recommendation algorithm that:
    FLIC_TOKEN=your_flic_token
    API_BASE_URL=https://api.socialverseapp.com
    ```
-4. **Run Database Migrations**
+5. **Run Database Migrations**
 
    ```bash
    alembic upgrade head
    ```
-5. **Start the Server**
+6. **Start the Server**
 
    ```bash
    uvicorn app.main:app --reload
@@ -63,7 +61,7 @@ This project implements a video recommendation algorithm that:
 
 ## 📊 API Endpoints
 
-### Recommendation Endpoints Has to Build
+### Main Recommendation Endpoints
 
 1. **Get Personalized Feed**
 
@@ -75,14 +73,14 @@ This project implements a video recommendation algorithm that:
 2. **Get Category-based Feed**
 
    ```
-   GET /feed?username={username}&project_code={project_code}
+   GET /feed?username={username}&category_id={category_id}
    ```
 
    Returns category-specific video recommendations for a user.
 
 ### Data Collection Endpoints (Internal Use)
 
-APIs for data collection:
+The system uses the following APIs for data collection:
 
 ### APIs
 
@@ -129,21 +127,45 @@ Header:
 
 **Note**: All external API calls require the Flic-Token header:
 
+## 🧮 Algorithm Implementation
+
+The recommendation engine uses a Deep Neural Network (DNN) architecture with the following components:
+
+1. **Data Preprocessing**
+
+   - Feature engineering
+   - Data normalization
+   - Missing value handling
+   - Categorical encoding
+2. **Model Architecture**
+
+   - Embedding layers for categorical features
+   - Dense layers with ReLU activation
+   - Dropout for regularization
+   - Output layer with appropriate activation
+3. **Cold Start Handling**
+
+   - Mood-based initial recommendations
+   - Content-based filtering fallback
+   - Popularity-based recommendations
 
 ## 📝 Submission Requirements
 
 1. **GitHub Repository**
-   - Submit a merge request from your fork or cloned repository.
-   - Include a complete Postman collection demonstrating your API endpoints.
-   - Add a docs folder explaining how your recommendation system works.
-2. **Video Submission**
-   - Introduction Video (30–40 seconds)
-     - A short personal introduction (with face-cam).
-   - Technical Demo (3–5 minutes)
-     - Live demonstration of the APIs using Postman.
-     - Brief overview of the project.
-       Video Submission
 
+   - Complete source code
+   - This README.md file
+   - Postman collection
+   - Database migration scripts
+2. **Video Submission**
+
+   - Introduction Video (30-40 seconds)
+     - Personal introduction
+     - Project overview
+   - Technical Demo
+     - API demonstration using Postman
+     - Database operations
+     - Authentication flow
 3. **Notification**
 
    - Join the Telegram group: [Video Recommendation](https://t.me/+VljbLT8o75QxN2I9)
